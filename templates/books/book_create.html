@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservar Livro</title>
+    <title>Criar Livro</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
-        <h1>Reservar Livro</h1>
+        <h1>Criar Novo Livro</h1>
         <nav>
             <ul>
                 <li><a href="{{ url_for('auth.login') }}">Login</a></li>
@@ -21,12 +21,17 @@
 
     <main>
         <section>
-            <h2>Confirmação de Reserva</h2>
-            <p>Você está prestes a reservar o livro com o ID: <strong>{{ book.id }}</strong></p>
-            
-            <!-- Aqui você pode expandir para mostrar o título e detalhes do livro -->
-            <form method="POST" action="{{ url_for('books.reserve', book_id=book.id) }}">
-                <button type="submit">Confirmar Reserva</button>
+            <h2>Adicionar um Novo Livro</h2>
+            <form method="POST" action="{{ url_for('books.create') }}">
+                <div>
+                    <label for="title">Título do Livro:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div>
+                    <label for="author">Autor:</label>
+                    <input type="text" id="author" name="author" required>
+                </div>
+                <button type="submit">Salvar Livro</button>
             </form>
         </section>
     </main>
